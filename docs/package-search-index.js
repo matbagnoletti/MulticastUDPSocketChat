@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"chat"},{"l":"chat.comunicazione"},{"l":"chat.eccezioni"},{"l":"chat.gestione"},{"l":"chat.host"},{"l":"chat.utenze"}];updateSearchResults();
