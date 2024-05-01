@@ -75,7 +75,22 @@ Elenco dei comandi:
    <li><code>$log</code>: abilita e disabilita la modalità di <code>log</code> avanzata.</li>
 </ul>
 
-Si consiglia di gestire le possibili eccezioni lanciate dal programma tramite la classe [`ProjectOutput`](src/main/java/chat/gestione/ProjectOutput.java). Il metodo `ProjectOutput.stampa()` richiede due parametri: il messaggio di errore e la tipologia di messaggio (in questo caso `OutputType.STDERR`). La gestione dei <code>log</code> è, invece, affidata alla classe [`ChatLogger`](src/main/java/chat/gestione/ChatLogger.java). Per un più consapevole utilizzo di tali classi si consiglia la visualizzazione del package [`gestione`](src/main/java/chat/gestione).
+Digitando una generica sequenza di caratteri, invece, il programma interpreterà il testo come un messaggio da comunicare al <code>GroupChat</code> in modalità multicast.
+
+Dopo che il programma ha opportunamente memorizzato in rubrica un generico utente del <code>GroupChat</code> dal quale si è ricevuto un generico messaggio, è possibile comunicare in modalità privata (unicast) con esso specificando, dopo il testo del messaggio, il suo nome utente.
+
+Ad esempio:
+```bash
+   ciao! > usernameDestinatario
+```
+
+> [!CAUTION]
+>
+> La ricerca dell'utente in rubrica è di tipo _case-sensitive_: l'utente _matteo_ è diverso dall'utente _Matteo_.
+
+A ogni <code>MulticastPeer</code> è associato un oggetto [Utente](src/main/java/chat/utenze/Utente.java). Per evitare conflitti di username, ogni utente è fornito di un proprio codice univoco <code>UUID</code>, che viene trasmesso insieme allo username. Attraverso metodi per la verifica dei duplicati, il programma rinominerà automaticamente utenti il cui username non risulta univoco.
+
+Si consiglia di gestire le possibili eccezioni lanciate dal programma tramite il costrutto <code>try-catch</code>, affidando l'output dell'evento alla classe [`ProjectOutput`](src/main/java/chat/gestione/ProjectOutput.java). Il metodo `ProjectOutput.stampa()` richiede due parametri: il messaggio di errore e la tipologia di messaggio (in questo caso `OutputType.STDERR`). La gestione dei <code>log</code> è, invece, affidata alla classe [`ChatLogger`](src/main/java/chat/gestione/ChatLogger.java). Per un più consapevole utilizzo di tali classi si consiglia la visualizzazione del package [`gestione`](src/main/java/chat/gestione).
 
 ## Documentazione
 L'intero progetto è stato opportunamente documentato secondo lo standard [JavaDoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html) disponibile nella directory [docs](/docs). Si consiglia di visualizzare il file [index.html](/docs/index.html) attraverso il proprio browser.

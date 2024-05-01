@@ -7,6 +7,7 @@ import chat.gestione.ChatLoggerType;
 import java.net.InetAddress;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Classe con funzione di rubrica per gli utenti noti nella chat. 
@@ -62,11 +63,14 @@ public class Rubrica {
 
     /**
      * Rimuove un {@link Utente} dalla rubrica
-     * @param utente il nome utente da ricercare e rimuovere
+     * @param IDutente l'identificativo univoco dell'{@link Utente} da ricercare e rimuovere
+     * @return lo username dell'{@link Utente} rimosso
      */
-    public synchronized void rimuoviUtente(String utente) {
-        ChatLogger.log("(Rubrica) richiesta rimozione dalla rubrica di " + utente, ChatLoggerType.OPTIONAL);
-        rubricaList.removeIf(i -> i.alias().equals(utente.trim()));
+    public synchronized String rimuoviUtente(String IDutente) {
+        String alias = ottieniAliasDaUUID(IDutente);
+        ChatLogger.log("(Rubrica) richiesta rimozione dalla rubrica di " + alias, ChatLoggerType.OPTIONAL);
+        rubricaList.removeIf(i -> i.alias().equals(alias));
+        return alias;
     }
 
     /**

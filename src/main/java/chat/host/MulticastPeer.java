@@ -179,10 +179,10 @@ public class MulticastPeer {
                             cronologia.confermaDiLettura(msgRicevuto);
                         } else if (!msgRicevuto.getIDutente().equals(this.utente.getIDutente())) {
                             if (msgRicevuto.getMsg().equals("left-group")) {
-                                rubrica.rimuoviUtente(msgRicevuto.getIDutente());
-                                ProjectOutput.stampa(msgRicevuto.getUsername() + " ha abbandonato la chat di gruppo", OutputType.STDOUT);
+                                String utenteRimosso = rubrica.rimuoviUtente(msgRicevuto.getIDutente());
+                                ProjectOutput.stampa(utenteRimosso + " ha abbandonato la chat del gruppo", OutputType.STDOUT);
                             } else if (msgRicevuto.getMsg().equals("join-group")) {
-                                ProjectOutput.stampa(msgRicevuto.getUsername() + " si è unito al gruppo-chat", OutputType.STDOUT);
+                                ProjectOutput.stampa(msgRicevuto.getUsername() + " si è unito al chat del gruppo", OutputType.STDOUT);
                                 ChatLogger.log("Tentativo di invio del messaggio di saluto in corso...", ChatLoggerType.OPTIONAL);
                                 invia("benvenuto/a " + msgRicevuto.getUsername() + "!");
                             } else {
