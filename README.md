@@ -90,7 +90,7 @@ Ad esempio:
 
 > [!CAUTION]
 >
-> La ricerca dell'utente in rubrica è di tipo _case-sensitive_: l'utente _*matteo*_ è diverso dall'utente _*Matteo*_.
+> La ricerca degli utenti in rubrica è di tipo _**case-sensitive**_: l'utente _**matteo**_ è diverso dall'utente _**Matteo**_.
 
 ### Gestione dei MulticastPeer nel gruppo
 
