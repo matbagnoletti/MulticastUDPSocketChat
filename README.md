@@ -16,7 +16,7 @@ Applicazione Java che utilizza i DatagramSocket per implementare una comunicazio
 - [Maven](https://maven.apache.org/download.cgi) (v3.9.6)
 
 È possibile visualizzare le versioni già presenti sul proprio dispositivo mediante i seguenti comandi:
-```
+```bash
 java -version
 mvn -v
 ```
@@ -62,7 +62,7 @@ Ad esempio:
 
 Un oggetto `GroupChat` necessita di un indirizzo IPv4 di classe D e di un numero di porta valido (1-65535) su cui avviare il `MulticastSocket`.
 
-Un oggetto `MulticastPeer` necessita, invece, di uno <code>username</code>, la modalità di <code>log</code> scelta (<code>true</code> per abilitare la modalità avanzata, <code>false</code> altrimenti) e del `GroupChat` a cui deve connettersi.
+Un oggetto `MulticastPeer` necessita, invece, di uno <code>username</code>, la modalità di <code>log</code> scelta (<code>true</code> per abilitare la modalità avanzata, <code>false</code> altrimenti) e del `GroupChat` a cui deve unirsi.
 
 ### Interazione con l'utente
 
