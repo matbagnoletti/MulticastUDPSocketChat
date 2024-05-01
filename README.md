@@ -9,7 +9,7 @@
 </p>
 
 ## Descrizione
-Applicazione Java che utilizza i DatagramSocket per implementare una comunicazione UDP unicast e multicast tra più MulticastPeer.
+Applicazione Java che utilizza i DatagramSocket per implementare una comunicazione UDP unicast e multicast tra più host MulticastPeer.
 
 ## Requisiti
 - [JDK](https://www.oracle.com/it/java/technologies/downloads/) (v21.0.2)
@@ -29,7 +29,7 @@ mvn -v
     - Tramite terminale:
         1. Naviga nella root del progetto
         2. Esegui la build del progetto: `mvn clean install`
-        3. Identifica il file `jar` nella directory `/targer/`
+        3. Identifica il file `jar` nella directory `/target/`
         4. Esegui il programma: `java -cp target/<nome-del-file-jar>.jar chat.RunMe`
 
 ## Struttura e funzionamento
