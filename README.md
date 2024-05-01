@@ -41,6 +41,8 @@ Il progetto si compone da 5 packages:
 - Package [host](src/main/java/chat/host): Fornisce le classi-entità necessarie alla gestione dei [`MulticastPeer`](src/main/java/chat/host/MulticastPeer.java).
 - Package [utenze](src/main/java/chat/utenze): Fornisce le classi-entità necessarie alla gestione degli oggetti [`Utente`](src/main/java/chat/utenze/Utente.java).
 
+### Utilizzo
+
 Per poter utilizzare il programma è necessario:
 1. Creare un oggetto [`GroupChat`](src/main/java/chat/host/GroupChat.java) e configurarlo opportunamente;
 2. Creare un oggetto [`MulticastPeer`](src/main/java/chat/host/MulticastPeer.java) e configurarlo opportunamente con il `GroupChat` precedentemente creato;
@@ -62,6 +64,8 @@ Un oggetto `GroupChat` necessita di un indirizzo IPv4 di classe D e di un numero
 
 Un oggetto `MulticastPeer` necessita, invece, di uno <code>username</code>, la modalità di <code>log</code> scelta (<code>true</code> per abilitare la modalità avanzata, <code>false</code> altrimenti) e del `GroupChat` a cui deve connettersi.
 
+### Interazione con l'utente
+
 Il programma, tramite un Thread dedicato, sarà in continua attesa di ricevere comandi dall'utente tramite tastiera. L'avviso <code>"# Terminale pronto all'invio di messaggi"</code> segnalerà la disponibilità del programma a ricevere input dall'utente.
 I comandi vengono distinti dai normali messaggi attraverso il carattere <code>$</code>.
 
@@ -81,12 +85,14 @@ Dopo che il programma ha opportunamente memorizzato in rubrica un generico utent
 
 Ad esempio:
 ```bash
-   ciao! > usernameDestinatario
+   ciao > usernameDestinatario
 ```
 
 > [!CAUTION]
 >
-> La ricerca dell'utente in rubrica è di tipo _case-sensitive_: l'utente _matteo_ è diverso dall'utente _Matteo_.
+> La ricerca dell'utente in rubrica è di tipo _case-sensitive_: l'utente _*matteo*_ è diverso dall'utente _*Matteo*_.
+
+### Gestione dei MulticastPeer nel gruppo
 
 A ogni <code>MulticastPeer</code> è associato un oggetto [Utente](src/main/java/chat/utenze/Utente.java). Per evitare conflitti di username, ogni utente è fornito di un proprio codice univoco <code>UUID</code>, che viene trasmesso insieme allo username. Attraverso metodi per la verifica dei duplicati, il programma rinominerà automaticamente utenti il cui username non risulta univoco.
 
