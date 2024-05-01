@@ -1,7 +1,7 @@
 package chat.gestione;
 
 /**
- * Classe per il logging del programma
+ * Classe per il logging di eventi
  * @author Matteo Bagnoletti Tini
  * @version 1.0
  * @project MulticastUDPSocketChat

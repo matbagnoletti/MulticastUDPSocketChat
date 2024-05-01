@@ -43,7 +43,7 @@ Il progetto si compone da 5 packages:
 
 Per poter utilizzare il programma è necessario:
 1. Creare un oggetto [`GroupChat`](src/main/java/chat/host/GroupChat.java) e configurarlo opportunamente;
-2. Creare un oggetto [`multicastPeer`](src/main/java/chat/host/MulticastPeer.java) e configurarlo opportunamente con il `GroupChat` precedentemente creato;
+2. Creare un oggetto [`MulticastPeer`](src/main/java/chat/host/MulticastPeer.java) e configurarlo opportunamente con il `GroupChat` precedentemente creato;
 3. Invocare il metodo `MulticastPeer.configura()` e successivamente `MulticastPeer.avvia()`.
 
 Ad esempio:
@@ -62,10 +62,23 @@ Un oggetto `GroupChat` necessita di un indirizzo IPv4 di classe D e di un numero
 
 Un oggetto `MulticastPeer` necessita, invece, di uno <code>username</code>, la modalità di <code>log</code> scelta (<code>true</code> per abilitare la modalità avanzata, <code>false</code> altrimenti) e del `GroupChat` a cui deve connettersi.
 
-Si consiglia di gestire le possibili eccezioni lanciate dal programma tramite la classe `ProjectOutput`. Il metodo `stampa()` richiede due parametri: il messaggio di errore, e la tipologia di messaggio (in questo caso `OutputType.STDERR`). La gestione dei <code>log</code> è, invece, affidata alla classe `ChatLogger`. Per un più consapevole utilizzo si consiglia la visualizzazione del package [`gestione`](src/main/java/chat/gestione).
+Il programma, tramite un Thread dedicato, sarà in continua attesa di ricevere comandi dall'utente tramite tastiera. L'avviso <code>"# Terminale pronto all'invio di messaggi"</code> segnalerà la disponibilità del programma a ricevere input dall'utente.
+I comandi vengono distinti dai normali messaggi attraverso il carattere <code>$</code>.
+
+Elenco dei comandi:
+<ul>
+   <li><code>$exit</code>: termina l'esecuzione del <code>MulticastPeer</code> e del programma.</li>
+   <li><code>$help</code>: stampa a video l'elenco dei comandi.</li>
+   <li><code>$utenti</code>: stampa a video l'elenco degli utenti memorizzati in rubrica (presenti nel gruppo).</li>
+   <li><code>$stat</code>: stampa a video le statistiche riguardo ai <code>messaggi</code> inviati in output. Tale funzionamento si basa sullo scambio di <code>messaggi ACK</code>.</li>
+   <li><code>$rn</code>: permette di rinominare un utente memorizzato in rubrica.</li>
+   <li><code>$log</code>: abilita e disabilita la modalità di <code>log</code> avanzata.</li>
+</ul>
+
+Si consiglia di gestire le possibili eccezioni lanciate dal programma tramite la classe [`ProjectOutput`](src/main/java/chat/gestione/ProjectOutput.java). Il metodo `ProjectOutput.stampa()` richiede due parametri: il messaggio di errore e la tipologia di messaggio (in questo caso `OutputType.STDERR`). La gestione dei <code>log</code> è, invece, affidata alla classe [`ChatLogger`](src/main/java/chat/gestione/ChatLogger.java). Per un più consapevole utilizzo di tali classi si consiglia la visualizzazione del package [`gestione`](src/main/java/chat/gestione).
 
 ## Documentazione
-L'intero progetto è stato opportunamente documentato secondo lo standard [JavaDoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html) disponibile nella directory [docs](/docs). Si consiglia di visualizzare il file [docs/index.html](/docs/index.html) attraverso il proprio browser.
+L'intero progetto è stato opportunamente documentato secondo lo standard [JavaDoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html) disponibile nella directory [docs](/docs). Si consiglia di visualizzare il file [index.html](/docs/index.html) attraverso il proprio browser.
 
 ## Licenza d'uso
 Questo progetto (e tutte le sue versioni) sono rilasciate sotto la [MB General Copyleft License](LICENSE).

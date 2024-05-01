@@ -220,7 +220,7 @@ public class MulticastPeer {
      */
     private synchronized void inputUtente() {
         new Thread(()->{
-            Thread.currentThread().setName("Thread di scrittura unicast e multicast");
+            Thread.currentThread().setName("Thread per l'input dell'utente");
             Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
 
             Scanner inUtente = new Scanner(System.in);
@@ -262,12 +262,10 @@ public class MulticastPeer {
                                 case "$help" -> {
                                     ChatLogger.log("Digita '$exit' per terminare l'esecuzione", ChatLoggerType.MANDATORY);
                                     ChatLogger.log("Digita '$help' per visualizzare l'elenco dei comandi", ChatLoggerType.MANDATORY);
-                                    ChatLogger.log("Digita '$exit' per terminare l'esecuzione", ChatLoggerType.MANDATORY);
                                     ChatLogger.log("Digita '$utenti' per visualizzare la rubrica memorizzata", ChatLoggerType.MANDATORY);
                                     ChatLogger.log("Digita '$stat' per visualizzare le statistiche di output", ChatLoggerType.MANDATORY);
                                     ChatLogger.log("Digita '$rn <alias> <nuovoAlias>' per rinominare l'alias di un utente in rubrica", ChatLoggerType.MANDATORY);
                                     ChatLogger.log("Digita '$log' per attivare/disattivare la modalità di logging", ChatLoggerType.MANDATORY);
-                                    ChatLogger.log("Digita '$help' per visualizzare l'elenco dei comandi", ChatLoggerType.MANDATORY);
                                 }
                                 
                                 case "$log" -> ChatLogger.abilita(!ChatLogger.isAbilitato());
