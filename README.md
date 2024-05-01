@@ -60,7 +60,7 @@ Ad esempio:
    }
 ```
 
-Un oggetto `GroupChat` necessita di un indirizzo IPv4 di classe D e di un numero di porta valido (1-65535) su cui avviare il `MulticastSocket`.
+Un oggetto `GroupChat` necessita di un indirizzo IPv4 di classe D e di un numero di porta valido (0-65535) su cui avviare il `MulticastSocket`.
 
 Un oggetto `MulticastPeer` necessita, invece, di uno <code>username</code>, la modalità di <code>log</code> scelta (<code>true</code> per abilitare la modalità avanzata, <code>false</code> altrimenti) e del `GroupChat` a cui deve unirsi.
 
@@ -90,7 +90,7 @@ Ad esempio:
 
 > [!CAUTION]
 >
-> La ricerca degli utenti in rubrica è di tipo _**case-sensitive**_: l'utente _**"matteo"**_ è diverso dall'utente _**"Matteo"**_.
+> La ricerca degli utenti in rubrica è di tipo _case-sensitive_: l'utente _"matteo"_ è diverso dall'utente _"Matteo"_.
 
 ### Gestione dei MulticastPeer nel gruppo
 
